@@ -1,1 +1,0 @@
-# aurusktek.github.io
