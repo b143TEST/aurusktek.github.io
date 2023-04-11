@@ -77,6 +77,9 @@
         scroll-behavior: smooth;
     }
 }
+.nav-tabs {
+    border-bottom: 0px solid #dee2e6 !important;
+}
 
 body {
     margin: 0;
