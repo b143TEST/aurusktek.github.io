@@ -31,8 +31,18 @@ document.addEventListener("scroll", () => {
 })
 
 const submitDetails = () => {
-    debugger;
-    alert("We have received your details and appreciate you reaching out to us!")
+
+    Email.send({
+        Host: "smtp.gmail.com",
+        Username: "<sender’s email address>",
+        Password: "<email password>",
+        To: '<recipient’s email address>',
+        From: "<sender’s email address>",
+        Subject: "<email subject>",
+        Body: "<email body>",
+    }).then(
+        message => alert("We have received your details and appreciate you reaching out to us!")
+    );
 };
 
 
