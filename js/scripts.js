@@ -4,7 +4,7 @@
 
 const showOnPx = 100;
 const backToTopButton = document.querySelector(".back-to-top")
-const submitButton =  document.getElementById("submitButton")
+const submitButton = document.getElementById("submitButton")
 
 
 const goToTop = () => {
@@ -32,16 +32,45 @@ document.addEventListener("scroll", () => {
 
 const submitDetails = () => {
 
+    var toemail = document.getElementById("email");
+    var message = document.getElementById("message");
+    var name = document.getElementById("name");
+    var phone = document.getElementById("phone");
+    let firstName = "John";
+    let lastName = "Doe";
+
+    let text = `Welcome ${firstName}, ${lastName}!`;
+
+    var body = "<html><body>" +
+        + "<p>'"+"Dear AurusTek Team,"+"'</p>" +
+        +  "<br/>" +
+        +   "<p>Hope you are fine.</p>" +
+        +   "<p>Please find details and waiting for you reply further.</p>" +
+        +   "<p>Query:'" + message.value + "'</p>" +
+        +   "<p>Thanking you</p>" +
+        +  "<p>Name:'" + name.value + "' </p>" +
+        +  "<p>Phone:'" + phone.value + "'</p>" +
+        +  "<p>Emai:'" + toemail.value + "'</p>" +
+        +  "<br/>" +
+        +  "<br/>" +
+        +  "<p>Regards,</p>" +
+        +  "<p>AurusTek.</p>" +
+        +  "<p><img src='/assets/Aurustek.jpeg' alt='AurusTek'/></p>" +
+        +   "</br>" +
+        +  "</body></html>";
+
     Email.send({
         Host: "smtp.gmail.com",
-        Username: "<sender’s email address>",
-        Password: "<email password>",
-        To: '<recipient’s email address>',
-        From: "<sender’s email address>",
-        Subject: "<email subject>",
-        Body: "<email body>",
+        Username: "info@aurustek.ai",
+        Password: "Aurus@2028",
+        To: toemail.value,
+        From: "info@aurustek.ai",
+        Subject: "Get in touch",
+        Body: text,
     }).then(
         message => alert("We have received your details and appreciate you reaching out to us!")
+    ).catch(
+        message => message
     );
 };
 
